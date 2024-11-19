@@ -1,1 +1,100 @@
-home
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.title %></title>
+</head>
+<body>
+    <h1><%= data.title %></h1>
+    <h2>Danh sách người dùng</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>Setting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < data.rows.length; i++) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= data.rows[i].username %></td>
+                    <td><%= data.rows[i].fullname %></td>
+                    <td><%= data.rows[i].address %></td>
+                    <td>
+                        <button class="btn view-btn">View</button>
+                        <button class="btn edit-btn">Edit</button>
+                        <button class="btn delete-btn">Delete</button>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.view-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #FFC107;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #F44336;
+    color: white;
+}
+
+</style>
